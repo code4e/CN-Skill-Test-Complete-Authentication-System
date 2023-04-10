@@ -1,73 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="/css/home.css">
 
 
+<p class="tip">One stop solution for authenticating all your apps. Just plug and play, it's very simple.</p>
+
+<div class="cont">
+
+  <%- include('user_sign_in'); -%>
 
 
-  <!-- noty js cdn -->
-  <script src="https://cdn.jsdelivr.net/npm/noty@3.2.0-beta/lib/noty.min.js"></script>
+  <div class="sub-cont sign-in-sign-up-backdrop">
+    <div class="img">
 
-  <!-- jquery cdn -->
-  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-
-  <!-- noty css cdn -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty@3.2.0-beta/lib/noty.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty@3.2.0-beta/lib/themes/nest.css">
-
-  <link rel="stylesheet" href="/css/home.css">
-  <title>Document</title>
-</head>
-
-<body>
-  <p class="tip">One stop solution for authenticating all your apps. Just plug and play, it's very simple.</p>
-
-  <div class="cont">
-
-    <%- include('user_sign_in'); -%>
-
-
-    <div class="sub-cont sign-in-sign-up-backdrop">
-      <div class="img">
-
-        <div class="img__text m--up">
-          <h2>New here?</h2>
-          <p>Sign up below to get started!</p>
-        </div>
-
-        <div class="img__text m--in">
-          <h2>One of us?</h2>
-          <p>If you already has an account, just sign in!</p>
-        </div>
-
-
-        <div class="img__btn">
-          <span class="m--up">Sign Up</span>
-          <span class="m--in">Sign In</span>
-        </div>
-
+      <div class="img__text m--up">
+        <h2>New here?</h2>
+        <p>Sign up below to get started!</p>
       </div>
 
-      <%- include('user_sign_up'); -%>
+      <div class="img__text m--in">
+        <h2>One of us?</h2>
+        <p>If you already has an account, just sign in!</p>
+      </div>
 
+
+      <div class="img__btn">
+        <span class="m--up">Sign Up</span>
+        <span class="m--in">Sign In</span>
+      </div>
 
     </div>
 
+    <%- include('user_sign_up'); -%>
+
+
   </div>
 
-  <a href="https://dribbble.com/shots/3306190-Login-Registration-form" target="_blank" class="icon-link">
-    <img src="http://icons.iconarchive.com/icons/uiconstock/socialmedia/256/Dribbble-icon.png">
-  </a>
-  <a href="https://twitter.com/NikolayTalanov" target="_blank" class="icon-link icon-link--twitter">
-    <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png">
-  </a>
+</div>
 
-  <script src="/js/home.js"></script>
-</body>
-
-</html>
+<script src="/js/home.js"></script>

@@ -1,0 +1,87 @@
+<!-- contains all the html common throughout the views -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- noty js cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/noty@3.2.0-beta/lib/noty.min.js"></script>
+
+
+  <!-- jquery cd -->
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/css/layout.css">
+  <!-- noty css cdn -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty@3.2.0-beta/lib/noty.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty@3.2.0-beta/lib/themes/nest.css">
+
+
+  <!-- put the styles here using express-ejs-layouts -->
+  <%- style %>
+
+  <title>
+    Title
+  </title>
+</head>
+
+<body>
+
+  <div class="header">
+    <a href="/" class="logo">One Stop Auth</a>
+    <div class="header-right">
+      
+      <% if (locals.user) { %>
+      <a href="/users/update-password-form">Reset Password</a>
+      <a href="/users/destroy-session">Log Out</a>
+      <% } %>
+    </div>
+  </div>
+
+
+
+  <main id="layout-main">
+    <%-body%>
+  </main>
+
+  <!-- put the scripts here using express-ejs-layouts -->
+  <%- script %>
+
+  <script>
+    <% if (locals.flash && locals.flash.success.length > 0) { %>
+    new Noty({
+      type: 'success',
+      layout: 'topRight',
+      theme: 'nest',
+      text: "<%= locals.flash.success%>",
+      timeout: '1500'
+
+    }).show();
+    <% } else if (locals.flash && locals.flash.error.length > 0) {%>
+    new Noty({
+      type: 'error',
+      layout: 'topRight',
+      theme: 'nest',
+      text: "<%= locals.flash.error%>",
+      timeout: '1500'
+
+    }).show();
+    <% } else if (locals.flash && locals.flash.warning.length > 0) {%>
+    new Noty({
+      type: 'warning',
+      layout: 'topRight',
+      theme: 'nest',
+      text: "<%= locals.flash.warning%>",
+      timeout: '1500'
+
+    }).show();
+    <% } %>
+  </script>
+
+</body>
+
+</html>

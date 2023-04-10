@@ -228,8 +228,13 @@ input {
 }
 
 .forgot-pass:hover {
-    color:#455a81;
+    color: #455a81;
     cursor: pointer;
+}
+
+.forgot-pass a {
+    color: #cfcfcf;
+    text-decoration: none;
 }
 
 .submit {

@@ -15,17 +15,14 @@ module.exports = loginMiddleware = async (req, res, next) => {
 
             if (match) {
                 res.locals.user = user
-                console.log(res.locals.user);
-                next()
+                next();
             } else {
-                res.status(400).json({
-                    message: 'Incorrect username or password'
-                })
+                req.flash('error', 'Invalid username/password! Please try again');
+                return res.redirect('/');
             }
         } else {
-            res.status(400).json({
-                message: 'Incorrect username or password'
-            })
+            req.flash('error', 'Error in finding the user');
+            return res.redirect('/');
         }
     } catch (error) {
         res.status(500).json({ error })

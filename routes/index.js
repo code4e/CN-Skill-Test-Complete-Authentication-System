@@ -1,7 +1,6 @@
 const express = require('express');
 const passport = require('passport')
 const router = express.Router();
-let firstTimeLogin = false;
 
 router.use('/users', require('./users'));
 
@@ -13,11 +12,11 @@ router.get('/',
             "jwt",
             { session: false },
             function (err, user, info) {
-                if (err) {
-                    return res.status(401).json(err);
-                }
-                if (!user) {
-                    res.render('user_auth_home', {
+                // if (err) {
+                //     return res.status(401).json(err);
+                // }
+                if (err || !user) {
+                    return res.render('user_auth_home', {
                         title: 'One Stop Auth',
                     });
                 } else {

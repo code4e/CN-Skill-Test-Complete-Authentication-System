@@ -27,13 +27,8 @@ passport.use('jwt', new JWTStrategy({
     const { expiration } = jwtPayload
 
     if (Date.now() > expiration) {
-        done('Unauthorized. Please login to view the home page', false)
+        done('Unauthorized. Please login to view the home page', false);
     }
 
     done(null, jwtPayload)
 }));
-
-
-
-
-// res.locals.user

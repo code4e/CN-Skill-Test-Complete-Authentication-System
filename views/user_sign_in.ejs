@@ -1,4 +1,4 @@
-<form class="form sign-in" action="/users/create-session" method="POST"> 
+<form class="form sign-in" action="/users/create-session" method="POST">
   <h2>Welcome back,</h2>
   <label>
     <span>Email</span>
@@ -8,7 +8,11 @@
     <span>Password</span>
     <input type="password" name="password" required />
   </label>
-  <p class="forgot-pass">Forgot password?</p>
+  <p class="forgot-pass">
+    <a href="/users/forgot-password">
+      Forgot password?
+    </a>
+  </p>
   <button type="submit" class="submit">Sign In</button>
   <button type="button" class="fb-btn">Connect with <span>Google <i class="fa-brands fa-google"></i></span></button>
 </form>

@@ -18,7 +18,7 @@
             //check if password and confirm password match or not
             if ($("#sign-up-password").val() !== $("#confirm-password").val()) {
                 //show noty that password do not match
-                console.log('Password do not match');
+                noty(() => showErrorNotification('Passwords do not match'));
                 return;
             } else {
                 //make ajax request for sign up form submission
