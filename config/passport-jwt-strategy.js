@@ -4,8 +4,11 @@
 const passport = require('passport');
 const passportJWT = require('passport-jwt');
 const JWTStrategy = passportJWT.Strategy;
+require('dotenv').config()
 
-const secret = 'auth_develop'
+
+
+const secret = process.env.TOKEN_SECRET;
 
 const cookieExtractor = req => {
     let jwt = null

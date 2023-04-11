@@ -7,6 +7,9 @@ const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const passportJWTStrategy = require('./config/passport-jwt-strategy');
 const expressLayouts = require('express-ejs-layouts');
+require('dotenv').config()
+
+
 
 //express-session, used for flash messages
 const session = require('express-session');
@@ -48,7 +51,7 @@ app.use(express.static('./assets'));
 //use the session middleware
 app.use(session({
     name: 'auth_develop',
-    secret: 'auth_develop',
+    secret: process.env.SESSION_SECRET,
     saveUninitialized: false,
     resave: false,
     cookie: {

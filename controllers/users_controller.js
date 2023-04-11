@@ -3,13 +3,14 @@ const User = require('../models/user');
 //to encrypt the passwords
 const bcrypt = require('bcrypt');
 
+require('dotenv').config()
+
 
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
-const PASSWORD_RESET_SECRET = 'some_secret';
+const PASSWORD_RESET_SECRET = process.env.PASSWORD_RESET_SECRET;
 
 const expirationtimeInMs = 60000000;
-
 
 //sign up the new user i.e. store them in the database
 module.exports.create = async (req, res) => {
@@ -66,7 +67,7 @@ module.exports.createSession = async (req, res) => {
         expiration: Date.now() + parseInt(expirationtimeInMs)
     }
 
-    const token = jwt.sign(JSON.stringify(payload), 'auth_develop')
+    const token = jwt.sign(JSON.stringify(payload), process.env.TOKEN_SECRET)
 
     res.cookie('jwt',
         token, {
