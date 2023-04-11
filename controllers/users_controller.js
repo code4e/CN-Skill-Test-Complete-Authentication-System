@@ -3,8 +3,9 @@ const User = require('../models/user');
 //to encrypt the passwords
 const bcrypt = require('bcrypt');
 
-require('dotenv').config()
+require('dotenv').config();
 
+const resetPasswordMailer = require('../mailers/reset_password_mailer');
 
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
@@ -156,15 +157,14 @@ module.exports.forgotPassword = async (req, res) => {
 
         const token = jwt.sign(payload, secret, { expiresIn: '15m' });
 
-        console.log(token);
+        // console.log(token);
 
 
         //generate the link
         const link = `http://localhost:8000/users/change-password/${user.id}/${token}`;
 
-        //TODO - send the email to the user here.
-        console.log(link);
-
+        // send the email to the user here.
+        resetPasswordMailer.sendMailWithPasswordResetLink(user.email, link);
 
 
         return res.send(`<h2>Password reset email has been sent to ${user.email}. Please check your inbox....</h2>`);
