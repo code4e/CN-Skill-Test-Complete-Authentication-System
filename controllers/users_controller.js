@@ -51,7 +51,7 @@ module.exports.create = async (req, res) => {
 
 
 module.exports.createSession = async (req, res) => {
-    let user
+    let user;
 
     if (res.locals.user) {
         user = res.locals.user

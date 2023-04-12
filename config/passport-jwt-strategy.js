@@ -35,3 +35,6 @@ passport.use('jwt', new JWTStrategy({
 
     done(null, jwtPayload)
 }));
+
+
+module.exports = passport;

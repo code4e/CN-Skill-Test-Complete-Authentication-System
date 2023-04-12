@@ -3,10 +3,6 @@ const ejs = require('ejs');
 const path = require('path');
 require('dotenv').config();
 
-
-
-
-
 // Generate test SMTP service account from ethereal.email
 // Only needed if you don't have a real mail account for testing
 let testAccount = (async () => await nodemailer.createTestAccount())();

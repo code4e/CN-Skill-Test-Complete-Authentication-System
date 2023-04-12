@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const findOrCreate = require('mongoose-findorcreate')
 
 
 const userSchema = new mongoose.Schema({
@@ -18,6 +19,9 @@ const userSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
+
+//plug in the static method utility of findOrCreate
+userSchema.plugin(findOrCreate);
 
 const User = mongoose.model('User', userSchema);
 

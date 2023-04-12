@@ -66,6 +66,22 @@ button {
     cursor: pointer;
 }
 
+
+a.fb-btn {
+    display: block;
+    margin: 0 auto;
+    width: 260px;
+    height: 36px;
+    border-radius: 30px;
+    /* color: #fff; */
+    font-size: 15px;
+    cursor: pointer;
+    background-color:#8fa1c7;
+    /* text-decoration: none; */
+}
+
+
+
 button:hover {
     transform: scale(1.01);
 }

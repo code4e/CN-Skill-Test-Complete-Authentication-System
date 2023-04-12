@@ -5,7 +5,11 @@ const bodyParser = require('body-parser');
 const db = require('./config/mongoose');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
+
 const passportJWTStrategy = require('./config/passport-jwt-strategy');
+//require passport google oauth2 stragegy for setting up google oauth login
+const passportGoogleOAuth20 = require('./config/passport-google-oauth20-strategy');
+
 const expressLayouts = require('express-ejs-layouts');
 require('dotenv').config()
 

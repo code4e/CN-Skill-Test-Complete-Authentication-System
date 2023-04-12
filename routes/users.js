@@ -70,4 +70,35 @@ router.get('/change-password/:id/:token', usersController.resetPasswordForm);
 
 router.post('/change-password-link/:id/:token', usersController.setNewPassword);
 
+
+//first make the request to google auth for signing in/ up the user
+router.get('/auth/google',
+    passport.authenticate('google',
+        { scope: ['profile', 'email'] }));
+
+//after the user has been signed in, receieve back the request from the callback url sent by google with user info and handle success and failure accordingly
+router.get('/auth/google/callback',
+    function (req, res, next) {
+        passport.authenticate(
+            "google",
+            { failureRedirect: '/auth/google/failure' },
+            function (err, user, info) {
+                if (err || !user) {
+                    return res.redirect('back');
+                } else {
+                    res.locals.user = user;
+                    next();
+                }
+            }
+
+        )(req, res, next);
+    },
+    usersController.createSession
+);
+
+
+
+
+
+
 module.exports = router;
