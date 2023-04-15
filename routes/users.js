@@ -67,7 +67,6 @@ router.post('/change-password', usersController.forgotPassword);
 router.get('/change-password/:id/:token', usersController.resetPasswordForm);
 
 
-
 router.post('/change-password-link/:id/:token', usersController.setNewPassword);
 
 
@@ -84,6 +83,7 @@ router.get('/auth/google/callback',
             { failureRedirect: '/auth/google/failure' },
             function (err, user, info) {
                 if (err || !user) {
+                    req.flash('error', 'Oops! something went wrong');
                     return res.redirect('back');
                 } else {
                     res.locals.user = user;

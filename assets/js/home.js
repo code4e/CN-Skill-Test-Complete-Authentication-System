@@ -7,6 +7,9 @@
 
     //attach click event listener to social sign up and sign in buttons
     $("#social-sign-in").click(event => $("#social-sign-in-link")[0].click());
+    $("#social-sign-up").click(event => $("#social-sign-up-link")[0].click());
+
+    
 
     //store the context of noty and bind it to use later while showing notifications
     let noty = $.getScript.bind(null, "/js/notifications.js");
