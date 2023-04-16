@@ -13,4 +13,19 @@
 
 5) The logged in routes are protected. 
 
-6) 
+6) A change password button that redirects you to a page where you can enter the new password.
+
+7) Forgot password - Putting your email id in the forgot password form sends a request to the backend which generates a one time token link using the old password and sends it to the email id using nodemailer provided with an expiry of 15min. (This is user configurable). Clicking on this link takes you to a page to enter the new password.
+
+8) All the notifications and flash messages are handeled using connect-flash and noty.js
+
+9) In the manual authentication, when a user logs in, the request gets routed through a login middleware which does the authentication and using passport-jwt-strategy. After generating a jwt token, the createSession method sets it inside the cookies to send it back to the user. Now, with every subsequent request, the user sends back that jwt token from the cookies and it gets verified and decrypted during each request and autheticates the user using passport.authenticate middleware.
+
+10) Note: - to start the project, you would need to set up a .env file in the root folder and set up the follwing keys for them to be used inside the project: - 
+                PASSWORD_RESET_SECRET="<password reset secret>"
+                TOKEN_SECRET="<token secret>"
+                SESSION_SECRET="<session secret>"
+                TRANSPORTER_EMAIL="<transporter email>"
+                TRANSPORTER_PASSWORD="<transporter password>"
+                GOOGLE_CLIENT_ID="<google client id>"
+                GOOGLE_CLIENT_SECRET="<google client secret>"
