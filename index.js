@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
+require('dotenv').config()
 const bodyParser = require('body-parser');
 const db = require('./config/mongoose');
 const passport = require('passport');
@@ -11,7 +12,7 @@ const passportJWTStrategy = require('./config/passport-jwt-strategy');
 const passportGoogleOAuth20 = require('./config/passport-google-oauth20-strategy');
 
 const expressLayouts = require('express-ejs-layouts');
-require('dotenv').config()
+
 
 
 
