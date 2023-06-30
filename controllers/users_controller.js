@@ -161,7 +161,7 @@ module.exports.forgotPassword = async (req, res) => {
 
 
         //generate the link
-        const link = `http://localhost:8000/users/change-password/${user.id}/${token}`;
+        const link = `${process.env.BASE_URL}/users/change-password/${user.id}/${token}`;
 
         // send the email to the user here.
         resetPasswordMailer.sendMailWithPasswordResetLink(user.email, link);
